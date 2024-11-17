@@ -1,5 +1,4 @@
 //import { useState } from 'react'
-import './App.css'
 import AppRoutes from './routes/Routes'
 
 function App() {
