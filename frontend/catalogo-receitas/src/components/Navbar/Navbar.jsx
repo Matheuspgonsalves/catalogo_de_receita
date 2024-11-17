@@ -8,17 +8,15 @@ const Navbar = () => {
     return(
         <>
             <header className="header">
-                <div id="logo">
+                <div id="logo" onClick={() => navigate('/')}>
                     <a href="/" className="logo" onClick={(e) => {e.preventDefault(); navigate('/')}}>Receitas</a>
                 </div>
 
                 <nav className="navbar">
-                    <a href="/" onClick={(e) => {e.preventDefault(); navigate('/')}}>Home</a>
-                    <a href="/sobre" onClick={(e) => {e.preventDefault(); navigate('/sobre')}}>Sobre</a>
                     <Button 
                         className="LoginButton"
                         text="Login"
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate('/')}
                     />
                     <Button 
                         className="buttonCadastro"
