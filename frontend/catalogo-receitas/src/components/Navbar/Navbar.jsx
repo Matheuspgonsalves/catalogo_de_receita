@@ -2,7 +2,7 @@ import Button from '../Button/Button';
 import './Nabvar.css';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ isAutenticated }) => {
     const navigate = useNavigate();
 
     return(
@@ -13,16 +13,33 @@ const Navbar = () => {
                 </div>
 
                 <nav className="navbar">
-                    <Button 
-                        className="LoginButton"
-                        text="Login"
-                        onClick={() => navigate('/')}
-                    />
-                    <Button 
-                        className="buttonCadastro"
-                        text="Cadastre-se"
-                        onClick={() => navigate('/cadastro')}
-                    />
+                    {isAutenticated ? (
+                        <>
+                            <Button 
+                                className="RegisterButton"
+                                text="Registrar receita"
+                                onClick={() => navigate('/novareceita')}
+                            />
+                            <Button 
+                                className="ListButton"
+                                text="Listar receitas"
+                                onClick={() => navigate('/listarreceita')}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <Button 
+                                className="LoginButton"
+                                text="Login"
+                                onClick={() => navigate('/')}
+                            />
+                            <Button 
+                                className="buttonCadastro"
+                                text="Cadastre-se"
+                                onClick={() => navigate('/cadastro')}
+                            />
+                        </>
+                    )}
                 </nav>
             </header>
         </>

@@ -47,3 +47,21 @@
 .buttonCadastro:hover {
     background-color: #ffffff3b;
 }
+
+/* Navbar para autenticados */
+
+.RegisterButton {
+    transition: .3s all;
+}
+
+.RegisterButton:hover {
+    background-color: #ec34348a;
+}
+
+.ListButton {
+    transition: .3s all;
+}
+
+.ListButton:hover {
+    background-color: #ec34348a;
+}
