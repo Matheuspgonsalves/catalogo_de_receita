@@ -1,5 +1,4 @@
-/* Div de imagem */
-.container-login {
+.cad-page .container-cadastro {
     width: 100%;
     height: 90vh;
     display: flex;
@@ -7,7 +6,7 @@
     border-radius: 1rem;
 }
 
-.img-box {
+.cad-page .img-box {
     width: 50%;
     height: 100%;
     background-color: #ff5353;
@@ -17,14 +16,12 @@
     border-radius: 1rem 0 0 1rem;
 }
 
-.img-box img {
+.cad-page .img-box img {
     width: 100%;
-    
+    height: 100%;
 }
 
-/* div do formulario */
-
-.content-box {
+.cad-page .content-box {
     width: 50%;
     height: 100%;
     display: flex;
@@ -34,52 +31,54 @@
     border-radius: 0 1rem 1rem 0;
 }
 
-.form-box {
-    width: 50%;
+.cad-page .form-box {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.form-box h2 {
+.cad-page .form-box h2 {
     font-weight: 700;
     font-size: 2rem;
 }
 
-form {
+.cad-page form {
     width: 100%;
-}
-
-.input-box {
-    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    align-items: center;
 }
 
-.input-box input {
-    width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 4px;
-    padding: 0.3rem 0.8rem;
-    background-color: rgb(214, 214, 214);
+.cad-page .container-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.remember {
+.cad-page .content-input {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.submit input{
-    background-color: #ec3434;
-    transition: all .3s;
-    cursor: pointer;
+.cad-page .input-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+} 
+
+.cad-page .input-box {
+    width: 100%;
 }
 
-.submit input:hover {
-    background-color: #ec34348a;
+.cad-page .input-box input {
+    width: 100%;
+}
+
+.cad-page .submit {
+    width: 100%;
 }

@@ -1,9 +1,14 @@
 import Navbar from "../../components/Navbar/Navbar";
 import './Login.css'
 import loginImage from '../../assets/images/background/login.svg'
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+    const navigate = useNavigate();
+
+
     return(
-        <>
+        <div className="login-page">
             <Navbar />
             <div className="container-login">
                 <div className="img-box">
@@ -36,13 +41,13 @@ const Login = () => {
                             </div>
 
                             <div className="input-box">
-                                <p>Não tem uma conta? <a href="">Cadastre-se</a></p>
+                                <p>Não tem uma conta? <a href="" onClick={() => {navigate('/cadastro')}}>Cadastre-se</a></p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

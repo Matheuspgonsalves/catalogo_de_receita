@@ -40,7 +40,7 @@
     font-weight: 400;
     color: rgb(255, 255, 255);
     background-color: #410000;
-    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    border: 0.5px solid rgba(255, 255, 255, 0.678);
     transition: all .3s;
 }
 
