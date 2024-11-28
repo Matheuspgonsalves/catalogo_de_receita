@@ -18,12 +18,12 @@ const Navbar = ({ isAutenticated }) => {
                             <Button 
                                 className="RegisterButton"
                                 text="Registrar receita"
-                                onClick={() => navigate('/novareceita')}
+                                onClick={() => navigate('/nova-receita')}
                             />
                             <Button 
                                 className="ListButton"
                                 text="Listar receitas"
-                                onClick={() => navigate('/listarreceita')}
+                                onClick={() => navigate('/listagem')}
                             />
                         </>
                     ) : (
