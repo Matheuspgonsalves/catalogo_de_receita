@@ -23,7 +23,7 @@ const Navbar = ({ isAutenticated }) => {
                             <Button 
                                 className="ListButton"
                                 text="Listar receitas"
-                                onClick={() => navigate('/listagem')}
+                                onClick={() => navigate('/lista-receitas')}
                             />
                         </>
                     ) : (
