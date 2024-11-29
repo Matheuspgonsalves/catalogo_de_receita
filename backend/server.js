@@ -1,16 +1,16 @@
-const sequelize = require('./config/db');
-const User = require('./models/User');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const userRoutes = require('./routes/UserRoutes');
 
-(async () => {
-    try {
-        // Testa a conexão com o banco
-        await sequelize.authenticate();
-        console.log('Conexão com o banco de dados estabelecida com sucesso.');
+const app = express();
 
-        // Sincroniza os Models com o banco (cria tabelas se necessário)
-        await sequelize.sync({ alter: true }); // Usa 'alter' para ajustar estrutura
-        console.log('Sincronização dos Models concluída.');
-    } catch (error) {
-        console.error('Erro ao conectar ou sincronizar o banco de dados:', error);
-    }
-})();
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use('/api', userRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
