@@ -1,16 +1,10 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const pool = require('./config/db');
 
-// Middleware para lidar com requisições JSON
-app.use(express.json());
-
-// Rota básica de teste
-app.get('/', (req, res) => {
-    res.send('Olá, backend em Node.js!');
-});
-
-// Iniciar o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-});
+pool.getConnection()
+    .then((conn) => {
+        console.log('Conectado ao banco de dados!');
+        conn.release(); // Libera a conexão após testar
+    })
+    .catch((err) => {
+        console.error('Erro ao conectar ao banco de dados:', err);
+    });
