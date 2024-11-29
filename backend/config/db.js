@@ -1,15 +1,18 @@
-require('dotenv').config();
-const mysql = require('mysql2');
+require('dotenv').config(); // Carrega as variáveis do .env
 
-// Configurações do banco de dados
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-});
+const { Sequelize } = require('sequelize');
 
-module.exports = pool.promise();
+// Configura o Sequelize com base no .env
+const sequelize = new Sequelize(
+    process.env.DB_NAME,       // Nome do banco
+    process.env.DB_USER,       // Usuário
+    process.env.DB_PASSWORD,   // Senha
+    {
+        host: process.env.DB_HOST,
+        dialect: 'mysql',      // Dialeto para MySQL
+        port: process.env.DB_PORT || 3306, // Porta padrão do MySQL
+        logging: false,        // Desativa logs de SQL no console
+    }
+);
+
+module.exports = sequelize;
