@@ -31,8 +31,10 @@ const Login = () => {
             });
 
             if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token);  // Armazena o token no localStorage
                 alert('Login realizado com sucesso!');
-                navigate('/home'); // Redirecionar para a página inicial
+                navigate('/home');  // Redireciona para a página inicial
             } else {
                 const errorData = await response.json();
                 alert(`Erro no login: ${errorData.message}`);
