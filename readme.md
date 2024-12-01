@@ -12,6 +12,7 @@ Nesta fase do processo seletivo, fui solicitado a desenvolver um código Full St
 - [Diferenciais](#diferenciais)
 - [Design System do Projeto](#design-system)
 - [Organização das Pastas](#organizacao-das-pastas)
+- [Design Patterns](#design-patterns)
 - [Ferramentas e Tecnologias Utilizadas](#ferramentas-e-tecnologias-utilizadas)
   - [Backend](#backend)
   - [Frontend](#frontend)
@@ -142,6 +143,35 @@ catalogo_de_receita/
 │   │   └── yarn.lock                   # Arquivo de bloqueio do Yarn
 │   └── readme.md                       # Documentação geral do projeto
 ```
+
+## Design Patterns
+
+### Backend
+
+A estrutura do backend segue o padrão **MVC (Model-View-Controller)**, que divide a aplicação em três partes principais:
+- **Model**: Representa as entidades e a interação com o banco de dados. Exemplo: `Receita.js` e `User.js`.
+- **Controller**: Contém a lógica de negócios, como no `authController.js` (autenticação) e `receitaController.js` (gerenciamento de receitas).
+- **View**: Como o backend serve apenas como uma API, não há uma camada de visualização tradicional.
+
+Além disso, utilizamos:
+- **Middleware** para validação de tokens JWT, como no arquivo `authenticateToken.js`.
+- **Singleton** para garantir uma única conexão com o banco de dados em `db.js`.
+
+---
+
+### Frontend
+
+O frontend foi desenvolvido com **React** e segue uma arquitetura modular baseada em componentes reutilizáveis. A estrutura do diretório é organizada da seguinte maneira:
+
+- **components/**: Contém os componentes reutilizáveis da interface, como `Button` e `Navbar`, que são utilizados em várias páginas.
+- **pages/**: Contém as páginas da aplicação, como `Cadastro`, `Login`, `ListaReceitas`, entre outras. Cada página é composta por componentes específicos, oferecendo uma estrutura limpa e fácil de manter.
+- **contexts/**: Utiliza o **Context API** do React para gerenciar o estado global da aplicação, como o estado de autenticação do usuário.
+- **assets/**: Armazena os arquivos estáticos, como imagens e fontes, utilizados no frontend. (Apenas imagens para este projeto)
+
+Cada página e componente foi projetado para ser modular e reutilizável, facilitando a manutenção e a escalabilidade da aplicação. A navegação entre as páginas é gerida pelo **React Router**, garantindo uma transição fluida entre as diferentes seções da aplicação.
+
+Essa estrutura promove um código mais limpo, modular e fácil de entender, além de facilitar futuras expansões da aplicação.
+
 
 ## Ferramentas e Tecnologias Utilizadas
 
