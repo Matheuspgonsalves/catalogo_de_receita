@@ -8,7 +8,7 @@
     color: white;
 }
 
-.header a{
+.header a {
     margin: 0 1rem;
     text-decoration: none;
     color: white;
@@ -29,7 +29,6 @@
     background-color: transparent;
     border: 0.5px solid rgba(255, 255, 255, 0.5);
     transition: all .3s;
-
 }
 
 .LoginButton:hover {
@@ -49,7 +48,6 @@
 }
 
 /* Navbar para autenticados */
-
 .RegisterButton {
     transition: .3s all;
 }

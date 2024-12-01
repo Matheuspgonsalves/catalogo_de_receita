@@ -1,12 +1,12 @@
 import './Button.css';
 
-const Button = ({text, onClick, style, disabled = false, className = ""}) => {
+const Button = ({ text, onClick, style, disabled = false, className = "" }) => {
     return (
-        <button 
+        <button
             className={`button ${className}`}
             onClick={onClick}
             style={style}
-            disabled={disabled}    
+            disabled={disabled}
         >
             {text}
         </button>

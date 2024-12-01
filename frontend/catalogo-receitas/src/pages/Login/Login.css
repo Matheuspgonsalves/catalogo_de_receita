@@ -1,4 +1,3 @@
-/* Div de imagem */
 .container-login {
     width: 100%;
     height: 90vh;
@@ -19,10 +18,8 @@
 
 .img-box img {
     width: 100%;
-    
-}
 
-/* div do formulario */
+}
 
 .content-box {
     width: 50%;
@@ -74,7 +71,7 @@ form {
     justify-content: space-between;
 }
 
-.submit input{
+.submit input {
     background-color: #ec3434;
     transition: all .3s;
     cursor: pointer;

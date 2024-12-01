@@ -3,44 +3,62 @@ import './Login.css';
 import loginImage from '../../assets/images/background/login.svg';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({ email: '', password: '' });
+    const { setUserId, setToken } = useAuth();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
-        const { email, password } = formData;
+    const handleRememberMeChange = (e) => {
+        setRememberMe(e.target.checked);
+    };
 
-        if (!email || !password) {
-            alert('Por favor, preencha todos os campos.');
-            return;
-        }
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        const loginData = { email, password };
 
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('http://localhost:5000/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify(loginData),
             });
 
-            if (response.ok) {
-                const data = await response.json();
-                localStorage.setItem('token', data.token);  // Armazena o token no localStorage
-                alert('Login realizado com sucesso!');
-                navigate('/home');  // Redireciona para a página inicial
-            } else {
+            if (!response.ok) {
                 const errorData = await response.json();
-                alert(`Erro no login: ${errorData.message}`);
+                alert(`Erro no login: ${errorData.message || 'Erro desconhecido'}`);
+                return;
             }
+
+            const data = await response.json();
+
+            if (data && data.userId && data.token) {
+                setUserId(data.userId);
+                setToken(data.token);
+
+                if (rememberMe) {
+                    localStorage.setItem('rememberMe', true);
+                }
+
+                alert('Login bem-sucedido!');
+                navigate('/');
+            } else {
+                alert('Dados de login inválidos.');
+            }
+            // eslint-disable-next-line no-unused-vars
         } catch (error) {
-            alert('Erro ao conectar ao servidor.');
+            alert('Erro ao tentar fazer login.');
         }
     };
 
@@ -55,15 +73,16 @@ const Login = () => {
                 <div className="content-box">
                     <div className="form-box">
                         <h2>LOGIN</h2>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleLogin}>
                             <div className="input-box">
                                 <span>Email</span>
                                 <input
                                     type="email"
                                     name="email"
                                     placeholder="Email"
-                                    value={formData.email}
-                                    onChange={handleChange}
+                                    value={email}
+                                    onChange={handleEmailChange}
+                                    required
                                 />
                             </div>
 
@@ -73,16 +92,25 @@ const Login = () => {
                                     type="password"
                                     name="password"
                                     placeholder="Senha"
-                                    value={formData.password}
-                                    onChange={handleChange}
+                                    value={password}
+                                    onChange={handlePasswordChange}
+                                    required
                                 />
                             </div>
 
                             <div className="remember">
                                 <label>
-                                    <input type="checkbox" name="remember" /> Lembre-se
+                                    <input
+                                        type="checkbox"
+                                        name="remember"
+                                        checked={rememberMe}
+                                        onChange={handleRememberMeChange}
+                                    />
+                                    Lembre-se
                                 </label>
-                                <a href="#">Esqueceu sua senha?</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); navigate('/recuperar-senha'); }}>
+                                    Esqueceu sua senha?
+                                </a>
                             </div>
 
                             <div className="input-box submit">

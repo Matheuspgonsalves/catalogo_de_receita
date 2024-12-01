@@ -1,0 +1,86 @@
+/* Centralizando a página */
+.recuperar-senha-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  padding: 0 15px;
+}
+
+.recuperar-senha-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  border: 1px rgb(97, 97, 97) solid;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.recuperar-senha-page h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.recuperar-senha-input-box {
+  margin: 10px 0;
+  max-width: 400px;
+}
+
+.recuperar-senha-input-box span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.recuperar-senha-input-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.recuperar-senha-input-box.submit input {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.recuperar-senha-input-box.submit input:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.mensagem {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.voltar-login {
+  text-decoration: none;
+  color: #007BFF;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
+
+.voltar-login:hover {
+  text-decoration: underline;
+}

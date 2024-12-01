@@ -23,10 +23,9 @@ const Cadastro = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         const { firstName, lastName, email, confirmEmail, password, confirmPassword } = formData;
 
-        // Validações básicas
         if (!firstName || !lastName || !email || !confirmEmail || !password || !confirmPassword) {
             alert('Por favor, preencha todos os campos.');
             return;
@@ -40,13 +39,13 @@ const Cadastro = () => {
             return;
         }
 
-        // Enviar dados para o backend
         try {
-            const response = await fetch('/api/cadastro', {
+            const response = await fetch('http://localhost:5000/api/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ firstName, lastName, email, password }),
             });
+
 
             if (response.ok) {
                 alert('Cadastro realizado com sucesso!');
@@ -55,6 +54,7 @@ const Cadastro = () => {
                 const errorData = await response.json();
                 alert(`Erro no cadastro: ${errorData.message}`);
             }
+            // eslint-disable-next-line no-unused-vars
         } catch (error) {
             alert('Erro ao conectar ao servidor.');
         }
