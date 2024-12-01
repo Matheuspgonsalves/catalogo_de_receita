@@ -6,11 +6,18 @@ Nesta fase do processo seletivo, fui solicitado a desenvolver um código Full St
 
 ## Menu
 
-- [Sobre o Desafio](#catalogo-de-receitas--desafio-de-estagio-da-sofex-)
+- [Sobre o Desafio](#sobre-o-desafio)
 - [Menu](#menu)
-- [Especificações das Funcionalidades](#especificacoes)
+- [Especificações das Funcionalidades](#especificacoes-do-sistema)
 - [Diferenciais](#diferenciais)
 - [Design System do Projeto](#design-system)
+- [Organização das Pastas](#organizacao-das-pastas)
+- [Ferramentas e Tecnologias Utilizadas](#ferramentas-e-tecnologias-utilizadas)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+  - [Desenvolvimento e Testes](#desenvolvimento-e-testes)
+- [Como Executar o Projeto](#instrucoes-de-uso)
+
 
 ## Especificacoes do Sistema
 
@@ -60,7 +67,7 @@ Para garantir uma interface consistente e fácil de manter, desenvolvi component
   
 - **Formulários**: Campos de entrada padronizados com validação visual para tornar o preenchimento mais intuitivo e rápido.
 
-## Organização das pastas
+## Organizacao das pastas
 
 ```bash
 catalogo_de_receita/
@@ -169,7 +176,7 @@ catalogo_de_receita/
 - **Git**: Controle de versão para gerenciar o código-fonte do projeto.
 - **GitHub**: Plataforma de hospedagem de código e colaboração.
 
-## Instruções de Uso
+## Instrucoes de Uso
 
 Este repositório contém um projeto que utiliza Node.js, MySQL e Yarn. Para executar o projeto em sua máquina local, siga as instruções abaixo:
 
