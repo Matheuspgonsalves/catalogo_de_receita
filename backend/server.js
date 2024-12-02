@@ -22,7 +22,7 @@ const startServer = async () => {
 
     await sequelize.sync({ force: false });
 
-    const port = process.env.PORT || 5000;
+    const port = process.env.PORT;
     app.listen(port, () => console.log(`Servidor rodando na porta ${port}.`));
   } catch (error) {
     console.error("Erro ao conectar com o banco de dados:", error);

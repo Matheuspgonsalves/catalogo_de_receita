@@ -221,9 +221,9 @@ const ListaReceitas = () => {
               />
               <label>Modo de Preparo:</label>
               <textarea
-                value={editData.preparo}
+                value={editData.modoPreparo}
                 onChange={(e) =>
-                  setEditData({ ...editData, preparo: e.target.value })
+                  setEditData({ ...editData, modoPreparo: e.target.value })
                 }
               />
               <button type="submit" className="modal-button save">Salvar</button>
