@@ -77,13 +77,13 @@ const ListaReceitas = () => {
   const handleSaveEdit = async () => {
     if (editData) {
       try {
-        const token = localStorage.getItem("token");  // Supondo que o token esteja armazenado no localStorage
+        const token = localStorage.getItem("token"); 
         console.log(token);
         const response = await fetch(`${backendUrl}/api/receita/${editData.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,  // Adicionando o token no cabeçalho
+            'Authorization': `Bearer ${token}`, 
           },
           body: JSON.stringify(editData),
         });
@@ -92,13 +92,12 @@ const ListaReceitas = () => {
           throw new Error("Erro ao editar receita");
         }
 
-        // Atualizando as receitas com a nova receita editada
         setReceitas((prevReceitas) =>
           prevReceitas.map((receita) =>
             receita.id === editData.id ? editData : receita
           )
         );
-        setEditData(null);  // Fechar o modal de edição após salvar
+        setEditData(null);  
       } catch (error) {
         console.error("Erro ao editar receita:", error);
       }
@@ -164,7 +163,6 @@ const ListaReceitas = () => {
         </div>
       </div>
 
-      {/* Modal de visualização */}
       {modalData && (
         <div className="modal">
           <div className="modal-content">
@@ -178,7 +176,6 @@ const ListaReceitas = () => {
         </div>
       )}
 
-      {/* Modal de edição */}
       {editData && (
         <div className="modal">
           <div className="modal-content">
@@ -235,7 +232,6 @@ const ListaReceitas = () => {
         </div>
       )}
 
-      {/* Modal de exclusão */}
       {deleteData && (
         <div className="modal">
           <div className="modal-content">
