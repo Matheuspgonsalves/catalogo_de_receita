@@ -33,7 +33,7 @@ exports.solicitarRecuperacaoSenha = async (req, res) => {
     user.tokenExpiry = new Date(Date.now() + 3600000);
     await user.save();
 
-    const resetUrl = `http://localhost:5173/redefinir-senha/${token}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/redefinir-senha/${token}`;
     const mailOptions = {
       to: email,
       from: process.env.EMAIL_USER,

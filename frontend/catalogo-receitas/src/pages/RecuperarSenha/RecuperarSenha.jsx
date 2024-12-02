@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RecuperarSenha.css';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const RecuperarSenha = () => {
   const [email, setEmail] = useState('');
   const [mensagem, setMensagem] = useState('');
@@ -24,7 +26,7 @@ const RecuperarSenha = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/solicitar-recuperacao-senha', {
+      const response = await fetch(`${backendUrl}/api/solicitar-recuperacao-senha`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

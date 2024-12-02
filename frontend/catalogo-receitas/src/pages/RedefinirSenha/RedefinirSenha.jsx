@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './RedefinirSenha.module.css';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const RedefinirSenha = () => {
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -23,7 +25,7 @@ const RedefinirSenha = () => {
   const handleSubmitEmail = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/solicitar-recuperacao-senha', { email });
+      const response = await axios.post(`${backendUrl}/api/solicitar-recuperacao-senha`, { email });
       setMessage(response.data.message);
     } catch (err) {
       setMessage('Erro ao enviar o e-mail de recuperação.');
@@ -34,7 +36,7 @@ const RedefinirSenha = () => {
     e.preventDefault();
     setIsResetting(true);
     try {
-      const response = await axios.patch(`http://localhost:5000/api/redefinir-senha/${token}`, { password: newPassword });
+      const response = await axios.patch(`${backendUrl}/api/redefinir-senha/${token}`, { password: newPassword });
       setMessage('');
       setSuccessMessage('Senha alterada com sucesso!');
 

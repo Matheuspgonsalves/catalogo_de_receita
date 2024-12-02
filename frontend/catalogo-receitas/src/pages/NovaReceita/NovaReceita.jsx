@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Navbar from "../../components/Navbar/Navbar";
 import './NovaReceita.css';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const NovaReceita = () => {
     const [userId, setUserId] = useState(null);
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -42,7 +44,7 @@ const NovaReceita = () => {
             userId: userId,
         };
         console.log(newRecipe.modoPreparo);
-        const response = await fetch('http://localhost:5000/api/nova-receita', {
+        const response = await fetch(`${backendUrl}/api/nova-receita`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

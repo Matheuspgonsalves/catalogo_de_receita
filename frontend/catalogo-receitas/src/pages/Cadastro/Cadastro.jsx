@@ -4,6 +4,8 @@ import cadImage from '../../assets/images/background/cadastro.svg';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Cadastro = () => {
     const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ const Cadastro = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/register', {
+            const response = await fetch(`${backendUrl}/api/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ firstName, lastName, email, password }),

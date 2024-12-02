@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Login = () => {
     const navigate = useNavigate();
     const { setUserId, setToken } = useAuth();
@@ -29,7 +31,7 @@ const Login = () => {
         const loginData = { email, password };
 
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch(`${backendUrl}/api/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(loginData),

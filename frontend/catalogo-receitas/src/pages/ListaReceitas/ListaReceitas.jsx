@@ -4,6 +4,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import "./ListaReceitas.css";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const ListaReceitas = () => {
   const [receitas, setReceitas] = useState([]);
   const [modalData, setModalData] = useState(null);
@@ -27,7 +29,7 @@ const ListaReceitas = () => {
 
   const fetchReceitas = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/receitas?userId=${userId}`);
+      const response = await fetch(`${backendUrl}/api/receitas?userId=${userId}`);
       if (!response.ok) {
         throw new Error("Erro ao buscar receitas");
       }
@@ -57,7 +59,7 @@ const ListaReceitas = () => {
   const handleDelete = async () => {
     if (deleteData) {
       try {
-        const response = await fetch(`http://localhost:5000/api/receita/${deleteData.id}`, {
+        const response = await fetch(`${backendUrl}/api/receita/${deleteData.id}`, {
           method: 'DELETE',
         });
         console.log("id aqui" + deleteData.id);
@@ -77,7 +79,7 @@ const ListaReceitas = () => {
       try {
         const token = localStorage.getItem("token");  // Supondo que o token esteja armazenado no localStorage
         console.log(token);
-        const response = await fetch(`http://localhost:5000/api/receita/${editData.id}`, {
+        const response = await fetch(`${backendUrl}/api/receita/${editData.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
