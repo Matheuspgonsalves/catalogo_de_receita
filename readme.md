@@ -4,6 +4,9 @@
 
 Nesta fase do processo seletivo, fui solicitado a desenvolver um código Full Stack. O desafio consiste na criação de um website para catálogo de receitas. O site conta com funcionalidades como autenticação, cadastro de usuários e integração com banco de dados. Mais detalhes sobre as funcionalidades do sistema estão disponíveis na seção [Especificações](#Especificacoes).
 
+Caso queira acessar o site está disponível no link a seguir:
+- [Catálogo de Receitas](https://catalogo-de-receita.vercel.app)
+
 ## Menu
 
 - [Sobre o Desafio](#sobre-o-desafio)
