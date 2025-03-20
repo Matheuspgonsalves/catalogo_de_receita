@@ -1,25 +1,20 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
 
-if (
-  !process.env.DB_NAME ||
-  !process.env.DB_USER ||
-  !process.env.DB_PASSWORD ||
-  !process.env.DB_HOST
-) {
-  console.error("Erro: Variáveis de ambiente não configuradas corretamente.");
+if (!process.env.DATABASE_URL) {
+  console.error("Erro: A variável DATABASE_URL não está configurada.");
   process.exit(1);
 }
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: process.env.DB_HOST,
-    dialect: "postgres",
-  }
-);
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 
 sequelize
   .authenticate()
